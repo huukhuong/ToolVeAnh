@@ -27,6 +27,8 @@ void loading() {
     cout << "\nDa load xong!!!";
     Sleep(500);
     system("cls");
+	
+	system("color F");
 }
 
 int main()
@@ -46,6 +48,8 @@ int main()
         newfile.close();
     }
 
+	cout << "Nhan phim bat ki de bat dau...";
+	cin.ignore();
     loading();
     cout << endl;
 
