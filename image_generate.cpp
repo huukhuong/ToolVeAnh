@@ -36,29 +36,23 @@ int main()
     fstream newfile;
     string str;
 
+	cout << "Nhan phim Enter de bat dau...";
+	cin.ignore();
+    loading();
+    cout << endl;
+    
     newfile.open("input.txt", ios::in);
     if (newfile.is_open())
     {
         string tp;
         while (getline(newfile, tp))
         {
-            str += tp;
-            str += '\n';
+            cout << tp << endl;
+            Sleep(20);
         }
         newfile.close();
     }
 
-	cout << "Nhan phim bat ki de bat dau...";
-	cin.ignore();
-    loading();
-    cout << endl;
-
-    for (int i = 0; i < str.length(); i++)
-    {
-        cout << str.at(i);
-        if(str.at(i) == '\n')
-	        Sleep(100);
-    }
     system("pause");
 	cin.ignore();
     return 0;
