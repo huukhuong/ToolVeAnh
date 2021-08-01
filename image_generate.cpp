@@ -59,7 +59,7 @@ int main()
         if(str.at(i) == '\n')
 	        Sleep(100);
     }
-    
+    system("pause");
 	cin.ignore();
     return 0;
 }
