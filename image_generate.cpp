@@ -75,7 +75,7 @@ int main()
         f.close();
     }
 
-    system("pause");
-    getch();
+    std::string a;
+    std::cin >> a;
     return 0;
 }
