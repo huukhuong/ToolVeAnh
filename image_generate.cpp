@@ -3,53 +3,75 @@
 #include <string>
 #include <windows.h>
 
-using namespace std;
-
 void loading()
 {
     system("color 0A");
 
     char a = 177, b = 219;
 
-    cout << "\n\t\t\t\t\t\tLoading...\n\n";
-    cout << "\t\t\t\t\t";
+    std::cout << "\n\t\t\t\t\t\tLoading...\n\n";
+    std::cout << "\t\t\t\t\t";
 
     for (int i = 0; i < 26; i++)
-        cout << a;
+        std::cout << a;
 
-    cout << "\r";
-    cout << "\t\t\t\t\t";
+    std::cout << "\r";
+    std::cout << "\t\t\t\t\t";
 
     for (int i = 0; i < 26; i++)
     {
-        cout << b;
+        std::cout << b;
         Sleep(100);
     }
-    cout << "\nDa load xong!!!";
+    std::cout << "\nDa load xong!!!";
     Sleep(500);
-    system("cls");
 
+    system("cls");
+    std::cout << std::endl;
     system("color F");
+}
+
+void question()
+{
+    std::fstream f;
+    std::string question, correct, answer;
+
+    f.open("question.txt", std::ios::in);
+    if (f.is_open())
+    {
+        getline(f, question);
+        getline(f, correct);
+        f.close();
+    }
+
+    do
+    {
+        std::cout << question << " ";
+        std::cin >> answer;
+        if (answer != correct)
+        {
+            std::cout << "Cau tra loi khong dung! Vui long thu lai...\n";
+        }
+    } while (answer != correct);
+    std::cout << "Ban da tra loi chinh xac!!!";
 }
 
 int main()
 {
-    cout << "Nhan phim Enter de bat dau...";
-    cin.ignore();
+    question();
     loading();
-    cout << endl;
 
-    fstream newfile;
-    newfile.open("input.txt", ios::in);
-    if (newfile.is_open())
+    std::fstream f;
+    f.open("input.txt", std::ios::in);
+    if (f.is_open())
     {
-        string tp;
-        while (getline(newfile, tp))
+        std::string tp;
+        while (getline(f, tp))
         {
-            cout << tp << endl;
+            std::cout << tp << std::endl;
             Sleep(20);
         }
-        newfile.close();
+        f.close();
     }
 
     system("pause");
