@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
+#include <conio.h>
 
 void loading()
 {
@@ -75,5 +76,6 @@ int main()
     }
 
     system("pause");
+    getch();
     return 0;
 }
